@@ -4,6 +4,9 @@ import Model.Graph;
 
 public class DominantSet {
     public static String getDominantSet(int size, Graph graph) { //Return a string with the dominant set
+        long startTime = System.nanoTime();
+        long endTime;
+        
         int[] binaryArray = new int[size]; //Array with the sequency of vertex
         instatiateBinaryArray(binaryArray, size); 
         String binary = Integer.toString(sizeToBinary(size)); //Max combination quantity in binary
@@ -34,7 +37,7 @@ public class DominantSet {
                         continue;
                     }
 
-                    if (comparator(lines, size, graph.getMatrix()) == true) { //Sum the lines and check if the combination of this vertexes are filled with 1's
+                    if (comparator(lines, size, graph.getMatrix()) == true){ //Sum the lines and check if the combination of this vertexes are filled with 1's
                         String result = "";
                         for (int k = 0; k < lines.length; k++) {
                             if(k == lines.length-1){
@@ -43,14 +46,25 @@ public class DominantSet {
                             }
                             result += (lines[k] + 1) + " - ";
                         }
-                        return "The dominant set is: " + result;
+                        endTime = System.nanoTime();
+                        Long elapsedTime = (endTime - startTime);
+                        float time =  elapsedTime.floatValue();
+                        time = time / 1000000000;
+                        System.out.println("--------------------------------------");
+                        System.out.println(time);
+                        System.out.println("--------------------------------------");
+                        return "The dominant set is: " + result + "\n" + "total execution time: " + time + " segundos";
                     }
                 } else {
                     continue;
                 }
             }
         }
-        return "There is no dominant set!";
+        endTime = System.nanoTime();
+        Long elapsedTime = (endTime - startTime);
+        float time =  elapsedTime.floatValue();
+        time = time / 1000000000;
+        return "There is no dominant set!" + "\n" + "total execution time: " + time + " segundos";
     }
 
     //Check if the vertexes in the array of possible solutions are connected

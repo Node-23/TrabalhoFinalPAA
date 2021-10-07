@@ -13,7 +13,8 @@ public class Menu {
 
         do {
             select = JOptionPane.showInputDialog(null,
-                    "Select an option:\n 1- Use the first example\n 2- Use the second example\n 3- Create a graph\n 0- Close program",
+                    "Select an option:\n 1- Use the first example\n 2- Use the second example\n 3- Use the third example"+
+                    "\n 4- Use the fourth example\n 5- Use the fifth example\n 6- Create a graph\n 0- Close program",
                     "Dominant set", JOptionPane.QUESTION_MESSAGE);
             option = Integer.parseInt(select);
 
@@ -25,6 +26,15 @@ public class Menu {
                     graph = SecondExample.secondExampleGraph();
                     break;
                 case 3:
+                    graph = ThirdExample.thirdExampleGraph();
+                    break;
+                case 4:
+                    graph = FourthExample.fourthExampleGraph();
+                    break;
+                case 5:
+                    graph = FifthExample.fifthExampleGraph();
+                    break;
+                case 6:
                     graph = CreateGraph.createGraph();
                     break;
                 case 0:
