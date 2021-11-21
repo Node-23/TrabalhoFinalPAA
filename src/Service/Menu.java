@@ -48,7 +48,25 @@ public class Menu {
 
         } while (option == -1);
 
-        JOptionPane.showMessageDialog(null, DominantSet.getDominantSet(graph.getVertex(), graph), "Result", JOptionPane.INFORMATION_MESSAGE);
+        do {
+            select = JOptionPane.showInputDialog(null,
+                    "Select an option:\n 1- Greedy algorithm\n 2- Brute force Algorithm\n", "Dominant set",
+                    JOptionPane.QUESTION_MESSAGE);
+            option = Integer.parseInt(select);
 
+            switch (option) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, GreedyAlgorithm.greedyAlgorithm(graph.getVertex(), graph),
+                            "Result", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null, DominantSet.getDominantSet(graph.getVertex(), graph), "Result", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                default:
+                    option = -1;
+                    break;
+            }
+        } while (option == -1);
     }
 }
+//
